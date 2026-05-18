@@ -50,7 +50,7 @@ export default function EventDetailPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative h-[400px] bg-slate-900 lg:h-[500px]">
+      <div className="relative h-100 bg-slate-900 lg:h-125">
         {event.image ? (
           <img
             src={getImageUrl(event.image)}

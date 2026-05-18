@@ -56,7 +56,7 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-white">
       {post.image && (
-        <div className="h-[400px] bg-slate-900 lg:h-[500px]">
+        <div className="h-100 bg-slate-900 lg:h-125">
           <img src={getImageUrl(post.image)} alt={post.title} className="h-full w-full object-cover opacity-80" />
         </div>
       )}

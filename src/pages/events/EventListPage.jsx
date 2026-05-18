@@ -71,7 +71,7 @@ export default function EventsListPage() {
   }, [activeFilter, events]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-emerald-50 text-slate-900">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-emerald-50 text-slate-900">
       <main className="mx-auto max-w-6xl space-y-12 px-4 py-16">
         <EventsHero
           title="Tracking every field visit, forum, and policy stop"
@@ -136,7 +136,7 @@ export default function EventsListPage() {
             <div className="mt-6 space-y-6 border-l border-slate-200 pl-6">
               {timelineUpdates.map((update) => (
                 <div key={update.id} className="relative">
-                  <span className="absolute -left-[34px] top-2 h-3 w-3 rounded-full border-2 border-emerald-500 bg-white" />
+                  <span className="absolute -left-8.5 top-2 h-3 w-3 rounded-full border-2 border-emerald-500 bg-white" />
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
                     {update.date}
                   </p>

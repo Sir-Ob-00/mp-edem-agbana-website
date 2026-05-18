@@ -29,7 +29,7 @@ function HeroCarousel() {
 
   return (
     <section className="relative bg-gray-100">
-      <div className="relative h-[520px] overflow-hidden">
+      <div className="relative h-130 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[activeIndex].id}

@@ -46,7 +46,7 @@ export default function AnnouncementDetailPage() {
 
   if (error || !announcement) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-slate-50 to-white">
+      <div className="flex min-h-screen items-center justify-center bg-linear-to-b from-slate-50 to-white">
         <div className="px-4 text-center">
           <h1 className="mb-4 text-4xl font-bold text-slate-900">
             Announcement Not Found
@@ -67,13 +67,13 @@ export default function AnnouncementDetailPage() {
   return (
     <div className="min-h-screen bg-white">
       {announcement.image_url && (
-        <div className="relative h-[320px] bg-slate-900 lg:h-[420px]">
+        <div className="relative h-80 bg-slate-900 lg:h-105">
           <img
             src={getImageUrl(announcement.image_url)}
             alt={announcement.title}
             className="h-full w-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent" />
         </div>
       )}
 

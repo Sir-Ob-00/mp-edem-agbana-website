@@ -52,7 +52,7 @@ export default function BlogListPage() {
   }, [posts, activeCategory, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-amber-50/30">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-amber-50/30">
       <section className="bg-slate-900 py-20 text-white">
         <div className="mx-auto max-w-6xl px-4">
           <p className="mb-4 text-sm uppercase tracking-[0.4em] text-amber-400">Media Center</p>

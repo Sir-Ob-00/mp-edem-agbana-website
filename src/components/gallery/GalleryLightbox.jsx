@@ -81,7 +81,7 @@ export default function GalleryLightbox({
             />
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+          <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-4">
             <p className="text-center text-sm text-white">
               {cleanupHtml(currentImage.caption || "")}
             </p>
@@ -111,7 +111,7 @@ export default function GalleryLightbox({
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`relative h-12 w-16 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+                className={`relative h-12 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
                   currentImageIndex === index
                     ? "border-emerald-500 opacity-100"
                     : "border-transparent opacity-50 hover:opacity-100"

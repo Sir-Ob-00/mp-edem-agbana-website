@@ -106,7 +106,7 @@ const fadeInUp = {
 
 export default function About() {
   return (
-    <main className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-emerald-50 text-slate-900 transition-colors duration-700">
+    <main className="relative overflow-hidden bg-linear-to-b from-slate-50 via-white to-emerald-50 text-slate-900 transition-colors duration-700">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -right-12 top-16 h-64 w-64 rounded-full bg-emerald-200/40 blur-[120px]" />
         <div className="absolute -left-12 bottom-10 h-80 w-80 rounded-full bg-amber-200/40 blur-[140px]" />
@@ -281,7 +281,7 @@ export default function About() {
                   key={`${experience.role}-${experience.organization}`}
                   className="relative pl-4 transition-transform duration-300 hover:translate-x-1"
                 >
-                  <span className="absolute -left-[34px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-emerald-500 bg-white" />
+                  <span className="absolute -left-8.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-emerald-500 bg-white" />
 
                   <p className="text-base font-semibold text-slate-900">
                     {experience.role}
