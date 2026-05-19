@@ -63,7 +63,7 @@ export default function AnnouncementCard({ announcement }) {
 
           <div className="flex justify-end">
             <Link
-              to={`/announcements/${announcement.slug}`}
+              to={`/announcement/${announcement.slug}`}
               className="text-sm font-semibold text-indigo-600 hover:text-indigo-700"
             >
               Read more

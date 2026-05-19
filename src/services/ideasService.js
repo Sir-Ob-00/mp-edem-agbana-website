@@ -1,35 +1,70 @@
-const API_BASE = import.meta.env.VITE_API_URL || "";
+/**
+ * Ideas Service
+ * Handles all idea API operations
+ */
 
-async function apiRequest(endpoint, options = {}) {
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-    ...options,
-  });
-
-  const data = await res.json();
-  if (!res.ok) throw new Error(data?.message || "Request failed");
-  return data;
-}
+import { apiClient } from '../lib/apiClient.js';
 
 const ideasService = {
-  getPublicIdeas(page = 1, limit = 50) {
-    return apiRequest(`/ideas/public?page=${page}&limit=${limit}`);
-  },
-
-  submitIdea(payload) {
-    return apiRequest("/ideas", {
-      method: "POST",
-      body: JSON.stringify(payload),
+  /**
+   * Get all public ideas with pagination
+   * @param {number} page - Page number (default: 1)
+   * @param {number} limit - Results per page (default: 50)
+   * @returns {Promise<Object>} Response with paginated ideas
+   */
+  getPublicIdeas: async (page = 1, limit = 50) => {
+    return apiClient(`/ideas/public?page=${page}&limit=${limit}`, {
+      requiresAuth: false,
     });
   },
 
-  voteIdea(id, voteType = "up") {
-    return apiRequest(`/ideas/${id}/vote`, {
-      method: "POST",
+  /**
+   * Submit new idea
+   * @param {Object} payload - Idea data (title, description, category, etc.)
+   * @returns {Promise<Object>} Response with created idea
+   */
+  submitIdea: async (payload) => {
+    return apiClient('/ideas', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      requiresAuth: false,
+    });
+  },
+
+  /**
+   * Vote on an idea
+   * @param {number|string} id - Idea ID
+   * @param {string} voteType - Vote type: 'up' or 'down' (default: 'up')
+   * @returns {Promise<Object>} Response with updated idea
+   */
+  voteIdea: async (id, voteType = 'up') => {
+    return apiClient(`/ideas/${id}/vote`, {
+      method: 'POST',
       body: JSON.stringify({ type: voteType }),
+      requiresAuth: false,
+    });
+  },
+
+  /**
+   * Get idea by ID
+   * @param {number|string} id - Idea ID
+   * @returns {Promise<Object>} Response with single idea
+   */
+  getIdeaById: async (id) => {
+    return apiClient(`/ideas/${id}`, {
+      requiresAuth: false,
+    });
+  },
+
+  /**
+   * Delete idea - Admin only or own idea
+   * @param {number|string} id - Idea ID
+   * @returns {Promise<Object>} Success response
+   */
+  deleteIdea: async (id) => {
+    return apiClient(`/ideas/${id}`, {
+      method: 'DELETE',
+      requiresAuth: false,
     });
   },
 };

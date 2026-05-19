@@ -54,7 +54,7 @@ export default function AnnouncementDetailPage() {
           <p className="mb-8 text-slate-600">
             {error || "The announcement you're looking for doesn't exist."}
           </p>
-          <Link to="/announcements">
+          <Link to="/announcement">
             <Button className="bg-indigo-600 hover:bg-indigo-700">
               Back to Announcements
             </Button>
@@ -84,7 +84,7 @@ export default function AnnouncementDetailPage() {
           }`}
         >
           <Link
-            to="/announcements"
+            to="/announcement"
             className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-indigo-600"
           >
             Back to all announcements

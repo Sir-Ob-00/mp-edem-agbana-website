@@ -3,7 +3,7 @@ import Button from "../../components/ui/Button";
 import AnnouncementList from "../../components/announcements/AnnouncementList";
 import announcementsService from "../../services/announcementsService";
 
-export default function AnnouncementsPage() {
+export default function AnnouncementPage() {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

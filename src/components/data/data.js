@@ -365,7 +365,7 @@ export const heroSlides = [
     description:
       "<p>Stay connected to community progress on education, infrastructure, and health services.</p>",
     ctaLabel: "View updates",
-    ctaLink: "/announcements",
+    ctaLink: "/announcement",
   },
   {
     id: "slide-3",

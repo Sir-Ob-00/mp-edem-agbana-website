@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Layout from "../components/common/Layout";
+
 import Home from "../pages/Home";
 import AboutPage from "../pages/AboutPage";
 import GalleryPage from "../pages/GalleryPage";
@@ -21,27 +23,112 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Core pages */}
+        {/* Home without layout since it has its own navbar/footer */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/ideas" element={<IdeasPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/youth" element={<YouthPage />} />
-        <Route path="/contact" element={<ContactPage />} />
 
+        {/* All other routes wrapped with Layout */}
+        <Route
+          path="/about"
+          element={
+            <Layout>
+              <AboutPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <Layout>
+              <GalleryPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/ideas"
+          element={
+            <Layout>
+              <IdeasPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <Layout>
+              <ProjectsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/youth"
+          element={
+            <Layout>
+              <YouthPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <Layout>
+              <ContactPage />
+            </Layout>
+          }
+        />
 
         {/* Blog routes */}
-        <Route path="/blog" element={<BlogListPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route
+          path="/blog"
+          element={
+            <Layout>
+              <BlogListPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <Layout>
+              <BlogPostPage />
+            </Layout>
+          }
+        />
 
         {/* Event routes */}
-        <Route path="/events" element={<EventListPage />} />
-        <Route path="/events/:slug" element={<EventDetailPage />} />
+        <Route
+          path="/events"
+          element={
+            <Layout>
+              <EventListPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/events/:slug"
+          element={
+            <Layout>
+              <EventDetailPage />
+            </Layout>
+          }
+        />
 
-        {/* Announcement module */}
-        <Route path="/announcement" element={<AnnouncementPage />} />
-        <Route path="/announcement/:slug" element={<AnnouncementDetailPage />} />
+        {/* Announcement routes */}
+        <Route
+          path="/announcement"
+          element={
+            <Layout>
+              <AnnouncementPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/announcement/:slug"
+          element={
+            <Layout>
+              <AnnouncementDetailPage />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

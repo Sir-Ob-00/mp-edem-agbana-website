@@ -53,7 +53,7 @@ export default function AnnouncementSection() {
             <div className="h-1 w-20 bg-indigo-600 rounded"></div>
           </div>
           <Link
-            to="/announcements"
+            to="/announcement"
             className="hidden md:flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
           >
             View All Announcements <ArrowRight className="ml-2 w-4 h-4" />
@@ -94,8 +94,8 @@ export default function AnnouncementSection() {
               <Link
                 to={
                   announcement.slug
-                    ? `/announcements/${announcement.slug}`
-                    : "/announcements"
+                    ? `/announcement/${announcement.slug}`
+                    : "/announcement"
                 }
                 className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center mt-auto"
               >
@@ -107,7 +107,7 @@ export default function AnnouncementSection() {
 
         <div className="mt-8 text-center md:hidden">
           <Link
-            to="/announcements"
+            to="/announcement"
             className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
           >
             View All Announcements <ArrowRight className="ml-2 w-4 h-4" />

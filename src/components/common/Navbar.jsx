@@ -8,7 +8,7 @@ const Logo = "/logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Announcements", href: "/announcements" },
+  { label: "Announcements", href: "/announcement" },
   { label: "Youth", href: "/youth" },
   { label: "Ideas", href: "/ideas" },
   { label: "Media Center", href: "/gallery" },
