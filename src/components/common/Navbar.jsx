@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // If using Vite/CRA, place logo in /public and reference like this:
-import Logo from "./assets/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
