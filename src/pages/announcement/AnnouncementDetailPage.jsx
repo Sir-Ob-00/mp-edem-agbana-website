@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import SanitizedHtml from "../../components/ui/SanitizedHtml";
 import announcementsService from "../../services/announcementsService";
 import {

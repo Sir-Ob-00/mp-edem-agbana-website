@@ -3,7 +3,7 @@ import eventsService from "../../services/eventsService";
 import EventsHero from "../../components/events/EventsHero";
 import EventFilters from "../../components/events/EventFilters";
 import EventCard from "../../components/events/EventCard";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 
 const heroStats = [
   { label: "Constituency stops", value: "48", detail: "Since January 2025" },

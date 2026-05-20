@@ -3,8 +3,8 @@ import blogService from "../../services/blogService";
 import BlogCard from "../../components/blog/BlogCard";
 import BlogFilters from "../../components/blog/BlogFilters";
 import BlogPagination from "../../components/blog/BlogPagination";
-import Button from "../../components/ui/Button";
-import Input from "../../components/ui/Input";
+import Button from "../../components/ui/button";
+import Input from "../../components/ui/input";
 
 export default function BlogListPage() {
   const [posts, setPosts] = useState([]);

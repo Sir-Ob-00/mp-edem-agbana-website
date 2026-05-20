@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import IdeasGrid from "./IdeasGrid";
 import SubmitIdeaModal from "./SubmitIdeaModal";
 import ideasService from "../../services/ideasService";

@@ -1,4 +1,4 @@
-import Input from "../ui/Input";
+import Input from "../ui/input";
 
 const categories = ["All", "News", "Education", "Infrastructure", "Community", "Health", "Youth"];
 

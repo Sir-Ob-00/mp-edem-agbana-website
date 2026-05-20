@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RichTextEditor from "./RichTextEditor";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import ideasService from "../../services/ideasService";
 import uploadService from "../../services/uploadService";
 

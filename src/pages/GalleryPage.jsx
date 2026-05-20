@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import Button from "../components/ui/Button";
+import Button from "../components/ui/button";
 import GalleryHero from "../components/gallery/GalleryHero";
 import GalleryFilters from "../components/gallery/GalleryFilters";
 import GalleryGrid from "../components/gallery/GalleryGrid";

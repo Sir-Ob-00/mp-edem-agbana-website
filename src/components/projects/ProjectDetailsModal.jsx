@@ -1,4 +1,4 @@
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import SanitizedHtml from "../ui/SanitizedHtml";
 import { formatProjectDate, getStatusClasses } from "../../utils/projectHelpers";
 

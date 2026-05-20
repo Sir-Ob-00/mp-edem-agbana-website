@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import eventsService from "../../services/eventsService";
 import SanitizedHtml from "../../components/ui/SanitizedHtml";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import EventDetailSidebar from "../../components/events/EventDetailSidebar";
 import { getImageUrl } from "../../utils/eventHelpers";
 

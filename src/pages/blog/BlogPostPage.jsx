@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import blogService from "../../services/blogService";
 import { cleanupHtml, formatDate, getImageUrl } from "../../utils/blogHelpers";
 import SanitizedHtml from "../../components/ui/SanitizedHtml";
-import Button from "../../components/ui/Button";
+import Button from "../../components/ui/button";
 import RelatedPosts from "../../components/blog/RelatedPosts";
 import BlogPostShare from "../../components/blog/BlogPostShare";
 

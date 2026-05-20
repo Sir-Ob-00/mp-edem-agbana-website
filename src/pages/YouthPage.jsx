@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Button from "../components/ui/Button";
+import Button from "../components/ui/button";
 import HeroPanel from "../components/youth/HeroPanel";
 import PersonalProfileFields from "../components/youth/PersonalProfileFields";
 import EducationReadinessFields from "../components/youth/EducationReadinessFields";

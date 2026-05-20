@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import { cleanupHtml, getImageUrl } from "../../utils/blogHelpers";
 
 export default function GalleryLightbox({

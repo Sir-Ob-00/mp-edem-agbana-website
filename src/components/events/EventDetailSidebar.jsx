@@ -1,4 +1,4 @@
-import Button from "../ui/Button";
+import Button from "../ui/button";
 import { formatEventDate, formatEventTime } from "../../utils/eventHelpers";
 
 export default function EventDetailSidebar({ event, isPast }) {
