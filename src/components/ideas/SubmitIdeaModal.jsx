@@ -1,4 +1,5 @@
 import { useState } from "react";
+import RichTextEditor from "./RichTextEditor";
 import Button from "../ui/Button";
 import ideasService from "../../services/ideasService";
 import uploadService from "../../services/uploadService";
@@ -161,20 +162,22 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
 
             <div>
               <label className="mb-2 block text-sm font-medium">Description *</label>
-              <textarea
-                name="description"
+              <RichTextEditor
                 value={formData.description}
-                onChange={handleChange}
-                rows={6}
-                placeholder="Describe your idea in detail..."
-                className="w-full rounded-md border px-3 py-2"
-                required
+                onChange={(value) => setFormData((prev) => ({ ...prev, description: value }))}
+                placeholder="Share your idea with details, benefits, and impact."
               />
+              <p className="mt-2 text-sm text-slate-500">Use rich text formatting to make your idea description clearer.</p>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">Attachment</label>
-              <input type="file" onChange={handleFileChange} className="w-full" />
+              <input
+                type="file"
+                accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,image/*"
+                onChange={handleFileChange}
+                className="w-full"
+              />
               {file && <p className="mt-2 text-sm text-gray-500">{file.name}</p>}
             </div>
           </div>
@@ -191,6 +194,7 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
                   name="submitter_name"
                   value={formData.submitter_name}
                   onChange={handleChange}
+                  placeholder="Enter your full name"
                   className="w-full rounded-md border px-3 py-2"
                   required
                 />
@@ -203,6 +207,7 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
                   type="email"
                   value={formData.submitter_email}
                   onChange={handleChange}
+                  placeholder="name@example.com"
                   className="w-full rounded-md border px-3 py-2"
                   required
                 />
@@ -214,6 +219,7 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
                   name="submitter_contact"
                   value={formData.submitter_contact}
                   onChange={handleChange}
+                  placeholder="e.g., +233 24 000 0000"
                   className="w-full rounded-md border px-3 py-2"
                 />
               </div>

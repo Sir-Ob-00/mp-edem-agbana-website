@@ -1,6 +1,6 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { heroSlides } from "../data/data";
+import heroSlidesService from "../../services/heroSlidesService";
 import { sanitizeHtml, cleanupHtml } from "../../utils/heroHelpers";
 import SanitizedHtml from "../ui/SanitizedHtml";
 
@@ -13,19 +13,69 @@ const stripOuterParagraph = (html) => {
 
 function HeroCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const slides = useMemo(() => heroSlides, []);
+  const [slides, setSlides] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        console.log("Fetching slides from API...");
+        console.log("API Base URL:", import.meta.env.VITE_API_URL || 'http://app.kofibenteh..com/v1');
+        const response = await heroSlidesService.getActiveSlides();
+        console.log("API Response:", response);
+        const slidesData = response?.data?.slides || response?.data || response?.slides || response || [];
+        console.log("Slides Data:", slidesData);
+        setSlides(Array.isArray(slidesData) ? slidesData : []);
+      } catch (error) {
+        console.error("Failed to load hero slides:", error);
+        console.log("Full error:", error);
+        setError(error.message);
+        setSlides([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSlides();
+  }, []);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
     }, SLIDE_DURATION);
-
     return () => clearInterval(interval);
   }, [slides.length]);
 
   const goTo = (index) => setActiveIndex(index);
   const next = () => goTo((activeIndex + 1) % slides.length);
   const prev = () => goTo((activeIndex - 1 + slides.length) % slides.length);
+
+  if (loading) {
+    return (
+      <section className="relative bg-gray-100">
+        <div className="h-130 flex flex-col items-center justify-center gap-4">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-400 border-t-transparent" />
+          <p className="text-gray-500">Loading slides...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="relative bg-gray-100">
+        <div className="h-130 flex flex-col items-center justify-center gap-2">
+          <p className="text-red-500">Failed to load slides</p>
+          <p className="text-sm text-gray-400">{error}</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (!slides.length) {
+    return null;
+  }
 
   return (
     <section className="relative bg-gray-100">
@@ -38,8 +88,13 @@ function HeroCarousel() {
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${slides[activeIndex].image || slides[activeIndex].image_url || ''})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
           >
-            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
             <div className="relative h-full flex flex-col justify-center text-white px-6 sm:px-10 lg:px-20">
               <motion.p
                 initial={{ y: 30, opacity: 0 }}
@@ -92,10 +147,10 @@ function HeroCarousel() {
                 className="mt-8"
               >
                 <a
-                  href={slides[activeIndex].ctaLink}
+                  href={slides[activeIndex].cta_link || slides[activeIndex].ctaLink || '#'}
                   className="inline-flex items-center gap-3 rounded-full bg-amber-400 px-6 py-3 text-base font-semibold text-red-900 shadow-lg shadow-amber-500/30 transition hover:bg-amber-300"
                 >
-                  {slides[activeIndex].ctaLabel}
+                  {slides[activeIndex].cta_text || slides[activeIndex].ctaLabel || 'Learn More'}
                   <i className="fa-solid fa-arrow-right"></i>
                 </a>
               </motion.div>

@@ -3,7 +3,7 @@
  * Handles authentication, FormData, error handling, and development logging
  */
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://app.kofibenteh..com/v1';
 
 /**
  * Configure API client (e.g., after login to set token)
@@ -36,7 +36,7 @@ export function getAuthToken() {
  */
 export async function apiClient(endpoint, options = {}) {
   const {
-    requiresAuth = true,
+    requiresAuth = false,
     isFormData = false,
     ...fetchOptions
   } = options;

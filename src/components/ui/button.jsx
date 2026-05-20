@@ -5,6 +5,8 @@ export default function Button({
   size = "md",
   className = "",
   disabled = false,
+  bgColor,
+  hoverBgColor,
   ...props
 }) {
   const base =
@@ -25,11 +27,18 @@ export default function Button({
 
   const disabledStyles = disabled ? "cursor-not-allowed opacity-60" : "";
 
+  const customBg = bgColor || className?.includes('bg-');
+  const variantStyles = customBg ? "" : variants[variant] || "";
+
+  const customColors = bgColor || hoverBgColor
+    ? `${bgColor || ''} ${hoverBgColor ? `hover:${hoverBgColor}` : ''}`.trim()
+    : '';
+
   return (
     <button
       type={type}
       disabled={disabled}
-      className={`${base} ${variants[variant] || variants.solid} ${sizes[size] || sizes.md} ${disabledStyles} ${className}`}
+      className={`${base} ${variantStyles} ${sizes[size] || sizes.md} ${disabledStyles} ${customColors} ${className}`}
       {...props}
     >
       {children}
