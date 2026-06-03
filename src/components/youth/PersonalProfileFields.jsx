@@ -9,37 +9,28 @@ export default function PersonalProfileFields({ register, errors }) {
   ];
 
   return (
-    <section className="space-y-6 rounded-2xl border border-slate-100 bg-white/80 p-6 shadow-sm">
-      <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-        Personal profile
+    <section className="space-y-6 rounded-2xl border border-border bg-surface/80 p-6 shadow-sm">
+      <div className="text-xs font-semibold uppercase tracking-wide text-text-muted">
+        Personal Profile
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {fields.map((field) => (
-          <div key={field.id} className="space-y-2">
-            <label htmlFor={field.id} className="text-sm font-medium text-slate-700">
-              {field.label}
-            </label>
-            <input
-              id={field.id}
-              type={field.type}
-              placeholder={field.placeholder}
-              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900"
-              {...register(field.name)}
-              onInput={
-                field.name === "phone_number"
-                  ? (e) => {
-                      e.currentTarget.value = e.currentTarget.value.replace(/[^0-9+]/g, "");
-                    }
-                  : undefined
-              }
-            />
+      {fields.map((field) => (
+        <div key={field.id}>
+          <label htmlFor={field.id} className="text-sm font-medium text-text-primary">
+            {field.label}
+          </label>
+          <input
+            id={field.id}
+            type={field.type}
+            {...register(field.id)}
+            placeholder={field.placeholder}
+            className="w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm text-text-primary"
+          />
             {errors[field.name] && (
-              <p className="text-xs text-rose-600">{errors[field.name]?.message}</p>
+              <p className="text-xs text-warning">{errors[field.name]?.message}</p>
             )}
           </div>
         ))}
-      </div>
     </section>
   );
 }

@@ -5,40 +5,40 @@ import { motion } from "framer-motion";
 
 function ReportCTA() {
   return (
-    <section className="bg-amber-50 py-16">
+    <section className="bg-warningBg py-16">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-600">
+          <p className="text-sm uppercase tracking-[0.3em] text-warning">
             Community Desk
           </p>
-          <h2 className="text-3xl font-semibold text-slate-900">
+          <h2 className="text-3xl font-semibold text-text-primary">
             See an issue in your community?
           </h2>
-          <p className="mt-4 text-slate-600">
+          <p className="mt-4 text-text-secondary">
             Help us prioritize interventions by sending detailed field reports.
-            Hon. Kofi Benteh Afful’s team responds with the transparency and
+            Hon. Kofi Benteh Afful's team responds with the transparency and
             speed constituents expect.
           </p>
           <a
             href="https://wa.me/233247730625?text=Hello%2C%20I%20want%20to%20report%20an%20issue"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-3 rounded-full bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-red-500/30 transition hover:bg-red-500"
+            className="mt-8 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-base font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primaryLight"
           >
             <i className="fa-solid fa-exclamation-circle"></i>
             Report an Issue Now
           </a>
         </div>
-        <div className="rounded-3xl bg-white p-8 shadow-xl">
+        <div className="rounded-3xl bg-surface p-8 shadow-xl">
           <div className="flex items-center gap-4">
-            <div className="rounded-2xl bg-amber-100 p-3 text-amber-600">
+            <div className="rounded-2xl bg-accent/20 p-3 text-accent">
               <i className="fa-solid fa-clipboard-list text-2xl"></i>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">
+              <h3 className="text-xl font-semibold text-text-primary">
                 How it works
               </h3>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-text-muted">
                 Three guided steps, handled by our rapid response desk.
               </p>
             </div>
@@ -53,10 +53,10 @@ function ReportCTA() {
                 transition={{ delay: index * 0.1 }}
                 className="flex gap-4"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-lg font-semibold text-white">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-lg font-semibold text-dark">
                   {index + 1}
                 </span>
-                <p className="text-sm text-slate-600">{step}</p>
+                <p className="text-sm text-text-secondary">{step}</p>
               </motion.div>
             ))}
           </div>

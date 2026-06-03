@@ -46,16 +46,16 @@ export default function AnnouncementDetailPage() {
 
   if (error || !announcement) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-linear-to-b from-slate-50 to-white">
+      <div className="flex min-h-screen items-center justify-center bg-linear-to-b from-background to-surface">
         <div className="px-4 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-slate-900">
+          <h1 className="mb-4 text-4xl font-bold text-text-primary">
             Announcement Not Found
           </h1>
-          <p className="mb-8 text-slate-600">
+          <p className="mb-8 text-text-secondary">
             {error || "The announcement you're looking for doesn't exist."}
           </p>
           <Link to="/announcement">
-            <Button className="bg-indigo-600 hover:bg-indigo-700">
+            <Button variant="primary">
               Back to Announcements
             </Button>
           </Link>
@@ -67,56 +67,56 @@ export default function AnnouncementDetailPage() {
   return (
     <div className="min-h-screen bg-white">
       {announcement.image_url && (
-        <div className="relative h-80 bg-slate-900 lg:h-105">
+        <div className="relative h-80 bg-dark lg:h-105">
           <img
             src={getImageUrl(announcement.image_url)}
             alt={announcement.title}
             className="h-full w-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent" />
         </div>
       )}
 
       <main className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         <article
-          className={`rounded-2xl bg-white p-6 shadow-xl md:p-10 ${
+          className={`rounded-2xl bg-surface p-6 shadow-xl md:p-10 ${
             announcement.image_url ? "-mt-24 relative" : ""
           }`}
         >
           <Link
             to="/announcement"
-            className="mb-6 inline-flex items-center gap-2 text-sm text-slate-500 transition-colors hover:text-indigo-600"
+            className="mb-6 inline-flex items-center gap-2 text-sm text-text-muted transition-colors hover:text-primary"
           >
             Back to all announcements
           </Link>
 
           <div className="mb-5 flex flex-wrap items-center gap-3">
-            <span className="inline-flex rounded-full bg-indigo-50 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-indigo-600">
+            <span className="inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-sm font-semibold uppercase tracking-wider text-primary">
               {announcement.category}
             </span>
 
             <span
               className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${
                 announcement.priority === "urgent"
-                  ? "bg-red-100 text-red-700"
+                  ? "bg-warningBg text-warning"
                   : announcement.priority === "high"
-                  ? "bg-orange-100 text-orange-700"
+                  ? "bg-warningBg text-warning"
                   : announcement.priority === "medium"
-                  ? "bg-blue-100 text-blue-700"
-                  : "bg-gray-100 text-gray-700"
+                  ? "bg-infoBg text-info"
+                  : "bg-border text-text-muted"
               }`}
             >
               {announcement.priority}
             </span>
 
             {announcement.published_at && (
-              <span className="ml-auto text-sm text-slate-500">
+              <span className="ml-auto text-sm text-text-muted">
                 {formatAnnouncementDate(announcement.published_at)}
               </span>
             )}
           </div>
 
-          <h1 className="mb-6 text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+          <h1 className="mb-6 text-3xl font-bold leading-tight text-text-primary md:text-4xl">
             {announcement.title}
           </h1>
 

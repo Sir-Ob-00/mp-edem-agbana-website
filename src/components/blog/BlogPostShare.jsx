@@ -47,8 +47,8 @@ export default function BlogPostShare({ title, image = null, modal = false, comp
   if (!modal && !compact) {
     // inline small bar (left text + right buttons) — keep clickable and accessible
     return (
-      <div className="mt-12 flex items-center justify-between border-t border-slate-100 pt-8">
-        <p className="text-sm text-slate-500">Share this article</p>
+      <div className="mt-12 flex items-center justify-between border-t border-border pt-8">
+        <p className="text-sm text-text-muted">Share this article</p>
         <div className="flex gap-3">
           {shareItems.map((s) => (
             <button
@@ -63,7 +63,7 @@ export default function BlogPostShare({ title, image = null, modal = false, comp
           ))}
           <button
             onClick={copyLink}
-            className="ml-2 rounded-md bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+            className="ml-2 rounded-md bg-background px-3 py-2 text-sm font-semibold text-text-primary hover:bg-border"
           >
             {copied ? "Copied" : "Copy link"}
           </button>
@@ -79,7 +79,7 @@ export default function BlogPostShare({ title, image = null, modal = false, comp
         {image && (
           <img src={image} alt={title || ""} className="w-full rounded-2xl object-cover mb-3 h-40" />
         )}
-        {title && <h4 className="text-sm font-semibold text-slate-900 line-clamp-2">{title}</h4>}
+        {title && <h4 className="text-sm font-semibold text-text-primary line-clamp-2">{title}</h4>}
       </div>
 
       <div className="flex items-center justify-between gap-3 my-3">
@@ -101,7 +101,7 @@ export default function BlogPostShare({ title, image = null, modal = false, comp
       <div className="mt-4">
         <button
           onClick={copyLink}
-          className="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-4 py-2 text-white font-semibold hover:bg-amber-600 transition"
+          className="w-full flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-white font-semibold hover:bg-primaryLight transition"
         >
           <Copy className="h-4 w-4" />
           <span>{copied ? "Copied" : "Copy link"}</span>

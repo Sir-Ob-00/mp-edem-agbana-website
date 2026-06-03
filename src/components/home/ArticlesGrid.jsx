@@ -45,93 +45,158 @@ function ArticlesGrid() {
 
   if (loading) {
     return (
-      <section className="bg-gray-50 py-16">
+      <section className="bg-background py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-accent">
               News & Blog
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-3xl font-semibold text-text-primary">
               Featured Articles
             </h2>
           </div>
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="h-8 w-8 text-amber-500 animate-spin" />
+            <Loader2 className="h-8 w-8 text-accent animate-spin" />
           </div>
         </div>
       </section>
     );
   }
 
+  const featured = posts[0];
+  const others = posts.slice(1, 3);
+
+  if (!featured) {
+    return null;
+  }
+
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-background py-16">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-8">
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent">
             News & Blog
           </p>
-          <h2 className="text-3xl font-semibold text-slate-900">
+          <h2 className="text-3xl font-semibold text-text-primary">
             Featured Articles
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {posts.map((post, index) => (
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Featured Article — spans 2 cols */}
+          <div className="lg:col-span-2">
             <Link
-              key={post.id}
-              to={`/blog/${post.slug}`}
-              aria-label={`Read ${post.title}`}
-              className="block rounded-2xl overflow-hidden"
+              to={`/blog/${featured.slug}`}
+              aria-label={`Read ${featured.title}`}
+              className="group block rounded-2xl overflow-hidden"
             >
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg transition"
+                transition={{ duration: 0.6 }}
+                className="overflow-hidden rounded-2xl bg-surface shadow transition-shadow duration-300 hover:shadow-xl"
               >
-                <div className="h-48 overflow-hidden relative bg-slate-100">
-                  {post.image ? (
+                <div className="relative h-72 sm:h-80 lg:h-96 overflow-hidden bg-background">
+                  {featured.image ? (
                     <img
-                      src={getImageUrl(post.image)}
-                      alt={post.title || "Blog post"}
-                      className="h-full w-full object-cover"
+                      src={getImageUrl(featured.image)}
+                      alt={featured.title || "Blog post"}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="h-full w-full flex items-center justify-center text-slate-400">
+                    <div className="h-full w-full flex items-center justify-center text-text-muted">
                       <span>No image</span>
                     </div>
                   )}
                 </div>
-                <div className="space-y-3 p-5">
+                <div className="space-y-4 p-6 lg:p-8">
                   <div className="flex items-center gap-2">
-                    {post.category && (
-                      <span className="text-xs font-medium uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
-                        {post.category}
+                    {featured.category && (
+                      <span className="text-xs font-medium uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded">
+                        {featured.category}
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 line-clamp-2">
-                    {post.title}
+                  <h3 className="text-2xl font-bold text-text-primary line-clamp-2 lg:text-3xl">
+                    {featured.title}
                   </h3>
-                  <p className="text-sm text-slate-500 line-clamp-2">
-                    {cleanupHtml(post.excerpt || "")}
+                  <p className="text-sm text-text-secondary line-clamp-3 lg:text-base">
+                    {cleanupHtml(featured.excerpt || "")}
                   </p>
-                  <span className="text-sm font-semibold text-red-600">
-                    Read story →
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Read article
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
                   </span>
                 </div>
               </motion.article>
             </Link>
-          ))}
+          </div>
+
+          {/* Supporting Articles — stacked vertically */}
+          <div className="flex flex-col gap-6">
+            {others.map((post, index) => (
+              <Link
+                key={post.id}
+                to={`/blog/${post.slug}`}
+                aria-label={`Read ${post.title}`}
+                className="group block rounded-2xl overflow-hidden"
+              >
+                <motion.article
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ delay: index * 0.15, duration: 0.5 }}
+                  className="overflow-hidden rounded-2xl bg-surface shadow transition-shadow duration-300 hover:shadow-lg"
+                >
+                  <div className="relative h-48 overflow-hidden bg-background">
+                    {post.image ? (
+                      <img
+                        src={getImageUrl(post.image)}
+                        alt={post.title || "Blog post"}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="h-full w-full flex items-center justify-center text-text-muted">
+                        <span>No image</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="space-y-2 p-5">
+                    <div className="flex items-center gap-2">
+                      {post.category && (
+                        <span className="text-xs font-medium uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded">
+                          {post.category}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-semibold text-text-primary line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                      Read
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </motion.article>
+              </Link>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-12 text-center">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-base font-semibold text-slate-700 hover:text-red-600 transition-colors"
+            className="inline-flex items-center gap-2 text-base font-semibold text-text-primary hover:text-primary transition-colors"
           >
             View all articles
-            <i className="fa-solid fa-arrow-right text-sm"></i>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </Link>
         </div>
       </div>

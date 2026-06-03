@@ -36,8 +36,8 @@ export default function EventDetailPage() {
   if (error || !event) {
     return (
       <div className="min-h-screen bg-white py-20 text-center">
-        <h1 className="mb-4 text-4xl font-bold text-slate-900">Event Not Found</h1>
-        <p className="mb-8 text-slate-600">{error}</p>
+        <h1 className="mb-4 text-4xl font-bold text-text-primary">Event Not Found</h1>
+        <p className="mb-8 text-text-secondary">{error}</p>
         <Link to="/events">
           <Button>Back to Events</Button>
         </Link>
@@ -50,7 +50,7 @@ export default function EventDetailPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative h-100 bg-slate-900 lg:h-125">
+      <div className="relative h-100 bg-dark lg:h-125">
         {event.image ? (
           <img
             src={getImageUrl(event.image)}
@@ -58,14 +58,14 @@ export default function EventDetailPage() {
             className="h-full w-full object-cover opacity-80"
           />
         ) : (
-          <div className="absolute inset-0 bg-slate-800" />
+          <div className="absolute inset-0 bg-darkSoft" />
         )}
       </div>
 
       <main className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="-mt-32 relative mb-12 grid gap-12 rounded-2xl bg-white p-8 shadow-xl lg:grid-cols-[2fr_1fr] lg:p-12">
+        <div className="-mt-32 relative mb-12 grid gap-12 rounded-2xl bg-surface p-8 shadow-xl lg:grid-cols-[2fr_1fr] lg:p-12">
           <div className="space-y-8">
-            <Link to="/events" className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-emerald-600">
+            <Link to="/events" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-primary">
               Back to all events
             </Link>
 
@@ -73,31 +73,31 @@ export default function EventDetailPage() {
               <div className="mb-4 flex flex-wrap gap-3">
                 <span
                   className={`rounded-full px-3 py-1 text-xs font-semibold uppercase ${
-                    isPast ? "bg-slate-100 text-slate-500" : "bg-emerald-50 text-emerald-600"
+                    isPast ? "bg-background text-text-muted" : "bg-successBg text-success"
                   }`}
                 >
                   {isPast ? "Past Event" : "Upcoming Event"}
                 </span>
 
                 {event.registration_required && (
-                  <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold uppercase text-amber-600">
+                  <span className="rounded-full bg-warningBg px-3 py-1 text-xs font-semibold uppercase text-warning">
                     Registration Required
                   </span>
                 )}
               </div>
 
-              <h1 className="text-3xl font-bold leading-tight text-slate-900 lg:text-4xl">
+              <h1 className="text-3xl font-bold leading-tight text-text-primary lg:text-4xl">
                 {event.name || event.title}
               </h1>
             </div>
 
             <SanitizedHtml
               html={event.description || ""}
-              className="text-lg leading-relaxed text-slate-600"
+              className="text-lg leading-relaxed text-text-secondary"
             />
 
-            <div className="flex items-center justify-between border-t border-slate-100 pt-8">
-              <p className="text-sm text-slate-500">Share this event</p>
+            <div className="flex items-center justify-between border-t border-border pt-8">
+              <p className="text-sm text-text-muted">Share this event</p>
               <Button variant="outline">Share</Button>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // If using Vite/CRA, place logo in /public and reference like this:
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/edem_logo@2x.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -27,7 +27,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-red-700 text-white sticky top-0 z-40 shadow-lg">
+    <header className="bg-surface text-text-primary sticky top-0 z-40 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img
@@ -37,9 +37,9 @@ export default function Navbar() {
           />
 
           <div className="font-semibold text-sm sm:text-lg leading-tight">
-            Hon. Kofi Benteh Afful
-            <span className="block text-white/70 text-xs">
-              Office of the MP · Sefwi Wiawso
+            Hon. Edem Agbana
+            <span className="block text-text-muted text-xs">
+              Office of the MP · Ketu North
             </span>
           </div>
         </Link>
@@ -55,8 +55,8 @@ export default function Navbar() {
                 to={link.href}
                 className={`rounded px-3 py-2 transition-colors ${
                   isActive
-                    ? "bg-amber-400 text-red-900 font-bold"
-                    : "hover:bg-red-600 text-white"
+                    ? "bg-primary text-white font-bold"
+                    : "text-text-primary hover:text-primaryLight hover:bg-background"
                 }`}
               >
                 {link.label}
@@ -69,7 +69,7 @@ export default function Navbar() {
         <button
           type="button"
           aria-label="Toggle navigation"
-          className="md:hidden rounded-lg border border-white/30 p-2"
+          className="md:hidden rounded-lg border border-border p-2 text-text-primary"
           onClick={() => setOpen((prev) => !prev)}
         >
           <Menu className="h-6 w-6" />
@@ -83,7 +83,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden border-t border-red-600 bg-red-700 overflow-hidden"
+            className="md:hidden border-t border-border bg-surface overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) => {
@@ -96,8 +96,8 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className={`block rounded px-3 py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-amber-400 text-red-900 font-bold"
-                        : "bg-white/10 text-white hover:bg-white/20"
+                        ? "bg-primary text-white font-bold"
+                        : "text-text-primary hover:bg-background"
                     }`}
                   >
                     {link.label}

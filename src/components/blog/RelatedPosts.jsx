@@ -38,24 +38,24 @@ export default function RelatedPosts({ currentId, category, limit = 3 }) {
 
   return (
     <section className="mt-16">
-      <h3 className="mb-6 text-xl font-semibold text-slate-900">Related articles</h3>
+      <h3 className="mb-6 text-xl font-semibold text-text-primary">Related articles</h3>
       <div className="grid gap-4 sm:grid-cols-3">
         {posts.map((post) => (
           <Link
             key={post.id}
             to={`/blog/${post.slug}`}
-            className="overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition"
+            className="overflow-hidden rounded-lg bg-surface shadow-sm hover:shadow-md transition"
           >
-            <div className="h-28 bg-slate-100">
+            <div className="h-28 bg-background">
               {post.image ? (
                 <img src={getImageUrl(post.image)} alt={post.title} className="h-full w-full object-cover" />
               ) : (
-                <div className="flex h-full items-center justify-center text-slate-400">No image</div>
+                <div className="flex h-full items-center justify-center text-text-muted">No image</div>
               )}
             </div>
             <div className="p-3">
-              <h4 className="line-clamp-2 text-sm font-semibold text-slate-900">{post.title}</h4>
-              <p className="mt-1 line-clamp-2 text-xs text-slate-500">
+              <h4 className="line-clamp-2 text-sm font-semibold text-text-primary">{post.title}</h4>
+              <p className="mt-1 line-clamp-2 text-xs text-text-muted">
                 {cleanupHtml(post.excerpt || "")}
               </p>
             </div>

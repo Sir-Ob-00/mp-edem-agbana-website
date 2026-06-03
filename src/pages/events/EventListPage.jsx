@@ -71,7 +71,7 @@ export default function EventsListPage() {
   }, [activeFilter, events]);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-emerald-50 text-slate-900">
+    <div className="min-h-screen bg-linear-to-b from-background via-surface to-background text-text-primary">
       <main className="mx-auto max-w-6xl space-y-12 px-4 py-16">
         <EventsHero
           title="Tracking every field visit, forum, and policy stop"
@@ -79,13 +79,13 @@ export default function EventsListPage() {
           stats={heroStats}
         />
 
-        <section className="rounded-3xl border border-white/70 bg-white p-8 shadow-sm">
+        <section className="rounded-3xl border border-border bg-surface p-8 shadow-sm">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-text-muted">
                 Filter feed
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+              <h2 className="mt-2 text-2xl font-semibold text-text-primary">
                 Browse events by focus area
               </h2>
             </div>
@@ -96,9 +96,9 @@ export default function EventsListPage() {
             />
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-500">
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-text-muted">
             <span>{filteredEvents.length} records shown</span>
-            <span className="text-slate-300">•</span>
+            <span className="text-text-muted/50">•</span>
             <span>
               {loading
                 ? "Loading events..."
@@ -113,8 +113,8 @@ export default function EventsListPage() {
           <div className="py-20 text-center">Loading...</div>
         ) : filteredEvents.length === 0 ? (
           <div className="py-20 text-center">
-            <h3 className="text-xl font-semibold text-slate-700">No events found</h3>
-            <p className="mt-2 text-slate-500">
+            <h3 className="text-xl font-semibold text-text-primary">No events found</h3>
+            <p className="mt-2 text-text-muted">
               Try selecting a different filter or check back later.
             </p>
           </div>
@@ -127,27 +127,27 @@ export default function EventsListPage() {
         )}
 
         <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-3xl border border-white/70 bg-white p-8 shadow-sm">
+          <div className="rounded-3xl border border-border bg-surface p-8 shadow-sm">
             <h3 className="text-xl font-semibold">Field timeline</h3>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-text-muted">
               We are documenting every logistical note so you can replay how an engagement was prepared.
             </p>
 
-            <div className="mt-6 space-y-6 border-l border-slate-200 pl-6">
+            <div className="mt-6 space-y-6 border-l border-border pl-6">
               {timelineUpdates.map((update) => (
                 <div key={update.id} className="relative">
-                  <span className="absolute -left-8.5 top-2 h-3 w-3 rounded-full border-2 border-emerald-500 bg-white" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">
+                  <span className="absolute -left-8.5 top-2 h-3 w-3 rounded-full border-2 border-primary bg-surface" />
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-text-muted">
                     {update.date}
                   </p>
-                  <p className="text-base font-semibold text-slate-900">{update.title}</p>
-                  <p className="text-sm text-slate-600">{update.detail}</p>
+                  <p className="text-base font-semibold text-text-primary">{update.title}</p>
+                  <p className="text-sm text-text-secondary">{update.detail}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-2xl">
+          <div className="rounded-3xl bg-dark p-8 text-white shadow-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/70">
               Stay updated
             </p>

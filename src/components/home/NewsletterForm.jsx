@@ -1,26 +1,26 @@
 function NewsletterForm() {
   return (
-    <section className="bg-white py-16">
-      <div className="mx-auto max-w-5xl rounded-3xl border border-slate-100 bg-slate-50 p-10 shadow-sm">
+    <section className="bg-surface py-16">
+      <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-background p-10 shadow-sm">
         <div className="grid gap-8 md:grid-cols-2">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-accent">
               Stay Updated
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-3xl font-semibold text-text-primary">
               Join our newsletter
             </h2>
-            <p className="mt-4 text-sm text-slate-500">
+            <p className="mt-4 text-sm text-text-muted">
               Receive curated updates on constituency developments, policy
               briefs, and volunteer actions.
             </p>
-            <p className="mt-2 text-xs text-slate-400">
+            <p className="mt-2 text-xs text-text-muted/70">
               We respect your privacy. Unsubscribe anytime.
             </p>
           </div>
           <form className="space-y-4">
             <label
-              className="text-sm font-medium text-slate-600"
+              className="text-sm font-medium text-text-secondary"
               htmlFor="newsletter-email"
             >
               Email address
@@ -29,11 +29,11 @@ function NewsletterForm() {
               id="newsletter-email"
               type="email"
               placeholder="you@example.com"
-              className="w-full rounded-2xl border border-slate-200 px-4 py-3 focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-100"
+              className="w-full rounded-2xl border border-border px-4 py-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
             <button
               type="button"
-              className="w-full rounded-full bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-500"
+              className="w-full rounded-full bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primaryLight"
             >
               Subscribe
             </button>

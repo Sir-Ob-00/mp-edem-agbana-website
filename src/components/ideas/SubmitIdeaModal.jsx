@@ -92,7 +92,7 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
     ) : (
       <Button
         onClick={() => setOpen(true)}
-        className="bg-amber-500 text-white hover:bg-amber-600"
+        variant="accent"
       >
         Submit Your Idea
       </Button>
@@ -101,17 +101,17 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="max-h-[95vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-white p-6 shadow-xl">
+      <div className="max-h-[95vh] w-full max-w-3xl overflow-y-auto rounded-xl bg-surface p-6 shadow-xl">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Submit a Community Idea</h2>
-          <p className="text-sm text-gray-500">
+          <h2 className="text-2xl font-bold text-text-primary">Submit a Community Idea</h2>
+          <p className="text-sm text-text-muted">
             Share your suggestions for improving the constituency.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-text-muted">
               Project Details
             </h3>
 
@@ -167,7 +167,7 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
                 onChange={(value) => setFormData((prev) => ({ ...prev, description: value }))}
                 placeholder="Share your idea with details, benefits, and impact."
               />
-              <p className="mt-2 text-sm text-slate-500">Use rich text formatting to make your idea description clearer.</p>
+              <p className="mt-2 text-sm text-text-muted">Use rich text formatting to make your idea description clearer.</p>
             </div>
 
             <div>
@@ -178,12 +178,12 @@ export default function SubmitIdeaModal({ onSuccess, trigger }) {
                 onChange={handleFileChange}
                 className="w-full"
               />
-              {file && <p className="mt-2 text-sm text-gray-500">{file.name}</p>}
+              {file && <p className="mt-2 text-sm text-text-muted">{file.name}</p>}
             </div>
           </div>
 
-          <div className="space-y-4 border-t pt-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+          <div className="space-y-4 border-t border-border pt-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-text-muted">
               Your Contact Info
             </h3>
 

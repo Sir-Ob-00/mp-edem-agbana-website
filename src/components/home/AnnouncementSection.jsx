@@ -34,27 +34,27 @@ export default function AnnouncementSection() {
   const getPriorityClass = (priority) => {
     switch (priority) {
       case "urgent":
-        return "bg-red-100 text-red-700";
+        return "bg-warningBg text-warning";
       case "high":
-        return "bg-orange-100 text-orange-700";
+        return "bg-warningBg text-warning";
       default:
-        return "bg-blue-100 text-blue-700";
+        return "bg-infoBg text-info";
     }
   };
 
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-16 bg-background">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-text-primary mb-2">
               Latest Announcements
             </h2>
-            <div className="h-1 w-20 bg-indigo-600 rounded"></div>
+            <div className="h-1 w-20 bg-primary rounded"></div>
           </div>
           <Link
             to="/announcement"
-            className="hidden md:flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+            className="hidden md:flex items-center text-primary font-medium hover:text-primaryLight transition-colors"
           >
             View All Announcements <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
@@ -64,7 +64,7 @@ export default function AnnouncementSection() {
           {announcements.map((announcement) => (
             <div
               key={announcement.id}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-100 flex flex-col h-full"
+              className="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-border flex flex-col h-full"
             >
               <div className="flex items-center justify-between mb-4">
                 <span
@@ -74,7 +74,7 @@ export default function AnnouncementSection() {
                 >
                   {announcement.priority}
                 </span>
-                <div className="flex items-center text-gray-400 text-xs">
+                <div className="flex items-center text-text-muted text-xs">
                   <Calendar className="w-3 h-3 mr-1" />
                   {announcement.published_at
                     ? new Date(announcement.published_at).toLocaleDateString()
@@ -82,13 +82,13 @@ export default function AnnouncementSection() {
                 </div>
               </div>
 
-              <h3 className="font-bold text-gray-900 mb-3 line-clamp-2">
+              <h3 className="font-bold text-text-primary mb-3 line-clamp-2">
                 {announcement.title}
               </h3>
 
               <SanitizedHtml
                 html={announcement.content}
-                className="text-gray-600 text-sm mb-4 grow line-clamp-3"
+                className="text-text-secondary text-sm mb-4 grow line-clamp-3"
               />
 
               <Link
@@ -97,7 +97,7 @@ export default function AnnouncementSection() {
                     ? `/announcement/${announcement.slug}`
                     : "/announcement"
                 }
-                className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center mt-auto"
+                className="text-primary hover:text-primaryLight text-sm font-medium flex items-center mt-auto"
               >
                 Read More <ArrowRight className="w-3 h-3 ml-1" />
               </Link>
@@ -108,7 +108,7 @@ export default function AnnouncementSection() {
         <div className="mt-8 text-center md:hidden">
           <Link
             to="/announcement"
-            className="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700 transition-colors"
+            className="inline-flex items-center text-primary font-medium hover:text-primaryLight transition-colors"
           >
             View All Announcements <ArrowRight className="ml-2 w-4 h-4" />
           </Link>

@@ -18,12 +18,12 @@ export default function AnnouncementCard({ announcement }) {
 
   return (
     <article
-      className="overflow-hidden rounded-lg border-l-4 bg-white shadow-sm transition-all duration-300 hover:shadow-md"
+      className="overflow-hidden rounded-lg border-l-4 bg-surface shadow-sm transition-all duration-300 hover:shadow-md"
       style={{ borderLeftColor: borderColor }}
     >
       <div className="flex flex-col md:flex-row">
         {announcement.image_url && (
-          <div className="h-48 w-full shrink-0 bg-gray-100 md:h-auto md:w-64">
+          <div className="h-48 w-full shrink-0 bg-background md:h-auto md:w-64">
             <img
               src={getImageUrl(announcement.image_url)}
               alt={announcement.title}
@@ -34,7 +34,7 @@ export default function AnnouncementCard({ announcement }) {
 
         <div className="flex-1 p-6">
           <div className="mb-3 flex flex-wrap items-center gap-2">
-            <span className="rounded-full border px-3 py-1 text-xs font-medium text-gray-700">
+            <span className="rounded-full border border-border px-3 py-1 text-xs font-medium text-text-secondary">
               {announcement.category}
             </span>
 
@@ -47,24 +47,24 @@ export default function AnnouncementCard({ announcement }) {
             </span>
 
             {announcement.published_at && (
-              <span className="ml-auto text-sm text-gray-500">
+              <span className="ml-auto text-sm text-text-muted">
                 {formatAnnouncementDate(announcement.published_at)}
               </span>
             )}
           </div>
 
-          <h3 className="mb-2 text-xl text-gray-900 md:text-2xl">
+          <h3 className="mb-2 text-xl text-text-primary md:text-2xl">
             {announcement.title}
           </h3>
 
-          <div className="mb-4 line-clamp-3 max-w-none text-gray-600">
+          <div className="mb-4 line-clamp-3 max-w-none text-text-secondary">
             <SanitizedHtml html={announcement.content} />
           </div>
 
           <div className="flex justify-end">
             <Link
               to={`/announcement/${announcement.slug}`}
-              className="text-sm font-semibold text-indigo-600 hover:text-indigo-700"
+              className="text-sm font-semibold text-primary hover:text-primaryLight"
             >
               Read more
             </Link>

@@ -5,17 +5,17 @@ import { motion } from "framer-motion";
 
 function MapPreview() {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-background py-16">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-accent">
               Interactive map
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-3xl font-semibold text-text-primary">
               Project Footprint
             </h2>
-            <p className="mt-3 max-w-2xl text-slate-500">
+            <p className="mt-3 max-w-2xl text-text-muted">
               Explore communities where sanitation upgrades, educational
               infrastructure, and digital hubs are underway.
             </p>
@@ -24,10 +24,10 @@ function MapPreview() {
             {communityStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl bg-white px-4 py-3 text-center shadow"
+                className="rounded-2xl bg-surface px-4 py-3 text-center shadow"
               >
-                <p className="text-2xl font-bold text-red-600">{stat.value}</p>
-                <p className="text-xs uppercase tracking-wide text-slate-500">
+                <p className="text-2xl font-bold text-primary">{stat.value}</p>
+                <p className="text-xs uppercase tracking-wide text-text-muted">
                   {stat.label}
                 </p>
               </div>
@@ -38,7 +38,7 @@ function MapPreview() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          className="overflow-hidden rounded-3xl bg-white shadow-lg"
+          className="overflow-hidden rounded-3xl bg-surface shadow-lg"
         >
           <div className="relative h-96">
             <iframe
@@ -48,7 +48,7 @@ function MapPreview() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            <div className="absolute inset-0 bg-linear-to-tr from-red-900/5 via-transparent to-amber-500/10" />
+            <div className="absolute inset-0 bg-linear-to-tr from-primary/5 via-transparent to-accent/10" />
           </div>
         </motion.div>
       </div>

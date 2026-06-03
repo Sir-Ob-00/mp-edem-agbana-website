@@ -24,8 +24,8 @@ export default function BlogPagination({
             onClick={() => onPageChange(page)}
             className={`h-10 w-10 rounded-full text-sm font-medium ${
               currentPage === page
-                ? "bg-amber-500 text-white"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-primary text-white"
+                : "bg-background text-text-secondary hover:bg-border"
             }`}
           >
             {page}

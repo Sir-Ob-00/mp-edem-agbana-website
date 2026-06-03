@@ -1,21 +1,21 @@
 export default function Button({
   children,
   type = "button",
-  variant = "solid",
+  variant = "primary",
   size = "md",
   className = "",
   disabled = false,
-  bgColor,
-  hoverBgColor,
   ...props
 }) {
   const base =
-    "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none";
+    "inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2";
 
   const variants = {
-    solid: "bg-emerald-600 text-white hover:bg-emerald-700",
-    outline: "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
-    ghost: "bg-transparent text-slate-700 hover:bg-slate-100",
+    primary: "bg-primary text-white hover:bg-primaryLight",
+    secondary: "border border-primary bg-transparent text-primary hover:bg-primary hover:text-white",
+    accent: "bg-accent text-dark hover:brightness-90",
+    outline: "border border-border bg-white text-text-secondary hover:bg-background",
+    ghost: "bg-transparent text-text-secondary hover:bg-background",
   };
 
   const sizes = {
@@ -27,18 +27,13 @@ export default function Button({
 
   const disabledStyles = disabled ? "cursor-not-allowed opacity-60" : "";
 
-  const customBg = bgColor || className?.includes('bg-');
-  const variantStyles = customBg ? "" : variants[variant] || "";
-
-  const customColors = bgColor || hoverBgColor
-    ? `${bgColor || ''} ${hoverBgColor ? `hover:${hoverBgColor}` : ''}`.trim()
-    : '';
+  const variantStyles = variants[variant] || variants.primary;
 
   return (
     <button
       type={type}
       disabled={disabled}
-      className={`${base} ${variantStyles} ${sizes[size] || sizes.md} ${disabledStyles} ${customColors} ${className}`}
+      className={`${base} ${variantStyles} ${sizes[size] || sizes.md} ${disabledStyles} ${className}`}
       {...props}
     >
       {children}

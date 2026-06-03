@@ -113,7 +113,7 @@ export default function GalleryLightbox({
                 onClick={() => setCurrentImageIndex(index)}
                 className={`relative h-12 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
                   currentImageIndex === index
-                    ? "border-emerald-500 opacity-100"
+                    ? "border-primary opacity-100"
                     : "border-transparent opacity-50 hover:opacity-100"
                 }`}
               >

@@ -63,20 +63,20 @@ function EventsList() {
 
   if (loading) {
     return (
-      <section className="bg-white py-16">
+      <section className="bg-surface py-16">
         <div className="mx-auto max-w-4xl px-4">
           <div className="mb-10">
-            <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+            <p className="text-sm uppercase tracking-[0.3em] text-accent">
               Calendar
             </p>
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-3xl font-semibold text-text-primary">
               Upcoming Events
             </h2>
-            <div className="mt-2 h-1 w-20 bg-red-500" />
+            <div className="mt-2 h-1 w-20 bg-primary" />
           </div>
 
           <div className="flex items-center justify-center py-12">
-            <Loader2 className="h-8 w-8 text-red-500 animate-spin" />
+            <Loader2 className="h-8 w-8 text-primary animate-spin" />
           </div>
         </div>
       </section>
@@ -84,21 +84,21 @@ function EventsList() {
   }
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-surface py-16">
       <div className="mx-auto max-w-4xl px-4">
         <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-amber-500">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent">
             Calendar
           </p>
-          <h2 className="text-3xl font-semibold text-slate-900">
+          <h2 className="text-3xl font-semibold text-text-primary">
             Upcoming Events
           </h2>
-          <div className="mt-2 h-1 w-20 bg-red-500" />
+          <div className="mt-2 h-1 w-20 bg-primary" />
         </div>
 
         {events.length === 0 ? (
-          <div className="text-center py-12 text-slate-500">
-            <Calendar className="h-12 w-12 mx-auto mb-4 text-slate-300" />
+          <div className="text-center py-12 text-text-muted">
+            <Calendar className="h-12 w-12 mx-auto mb-4 text-text-muted/50" />
             <p>No upcoming events scheduled at the moment.</p>
             <p className="text-sm mt-2">
               Check back soon for new announcements!
@@ -118,9 +118,9 @@ function EventsList() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.4 }}
-                  className="flex items-center gap-6 rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-sm hover:shadow-md transition-shadow"
+                  className="flex items-center gap-6 rounded-2xl border border-border bg-background p-5 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <div className="flex w-16 flex-col items-center rounded-xl bg-red-600 py-3 text-white">
+                  <div className="flex w-16 flex-col items-center rounded-xl bg-primary py-3 text-white">
                     <span className="text-2xl font-bold">{day}</span>
                     <span className="text-xs uppercase tracking-wide">
                       {monthYear}
@@ -128,21 +128,21 @@ function EventsList() {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-slate-900">
+                    <h3 className="text-xl font-semibold text-text-primary">
                       {event.title}
                     </h3>
 
-                    <div className="mt-2 flex flex-wrap gap-4 text-sm text-slate-500">
+                    <div className="mt-2 flex flex-wrap gap-4 text-sm text-text-muted">
                       {event.start_time && (
                         <span className="flex items-center gap-2">
-                          <Clock className="h-4 w-4 text-red-500" />
+                          <Clock className="h-4 w-4 text-primary" />
                           {formatTime(event.start_time)}
                         </span>
                       )}
 
                       {event.location && (
                         <span className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4 text-red-500" />
+                          <MapPin className="h-4 w-4 text-primary" />
                           {event.location}
                         </span>
                       )}
@@ -151,7 +151,7 @@ function EventsList() {
 
                   <Link
                     to="/events"
-                    className="hidden sm:flex items-center gap-1 text-sm font-medium text-red-600 hover:text-red-700 transition-colors"
+                    className="hidden sm:flex items-center gap-1 text-sm font-medium text-primary hover:text-primaryLight transition-colors"
                   >
                     Details
                     <i className="fa-solid fa-arrow-right text-xs"></i>
@@ -165,7 +165,7 @@ function EventsList() {
         <div className="mt-10 text-center">
           <Link
             to="/events"
-            className="inline-flex items-center gap-2 text-base font-semibold text-slate-700 hover:text-red-600 transition-colors"
+            className="inline-flex items-center gap-2 text-base font-semibold text-text-primary hover:text-primary transition-colors"
           >
             View all events
             <i className="fa-solid fa-arrow-right text-sm"></i>

@@ -17,7 +17,7 @@ import ContactPanel from "./home/ContactPanel";
 export default function HomePage() {
   return (
     <PublicLayout>
-      <div className="bg-white text-slate-900">
+      <div className="bg-background text-text-primary">
         <main className="space-y-0">
           <AnnouncementPopup />
           <HeroCarousel />

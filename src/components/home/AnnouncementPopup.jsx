@@ -53,10 +53,10 @@ export default function AnnouncementPopup() {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader className="space-y-3">
-          <div className="mx-auto bg-red-100 p-3 rounded-full w-fit">
-            <Bell className="h-6 w-6 text-red-600" />
+          <div className="mx-auto bg-accent/20 p-3 rounded-full w-fit">
+            <Bell className="h-6 w-6 text-accent" />
           </div>
-          <DialogTitle className="text-center text-xl text-red-700">
+          <DialogTitle className="text-center text-xl text-dark">
             {announcement.title}
           </DialogTitle>
         </DialogHeader>
@@ -64,7 +64,7 @@ export default function AnnouncementPopup() {
         <div className="py-2">
           <SanitizedHtml
             html={announcement.content}
-            className="text-center text-gray-600"
+            className="text-center text-text-secondary"
           />
         </div>
 
@@ -72,7 +72,7 @@ export default function AnnouncementPopup() {
           <Button
             type="button"
             variant="default"
-            className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white"
+            className="w-full sm:w-auto"
             onClick={handleClose}
           >
             Acknowledge & Close

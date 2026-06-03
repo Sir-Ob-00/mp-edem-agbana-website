@@ -4,9 +4,9 @@ export default function ProjectCard({ project, onSelect }) {
   return (
     <article
       onClick={() => onSelect(project)}
-      className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+      className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-surface shadow-sm transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(52,98,49,0.15)]"
     >
-      <div className="relative h-56 overflow-hidden bg-slate-100">
+      <div className="relative h-56 overflow-hidden bg-background">
         {project.image ? (
           <img
             src={project.image}
@@ -14,7 +14,7 @@ export default function ProjectCard({ project, onSelect }) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-slate-400">
+          <div className="flex h-full w-full items-center justify-center text-text-muted">
             No Image
           </div>
         )}
@@ -22,30 +22,30 @@ export default function ProjectCard({ project, onSelect }) {
       </div>
 
       <div className="space-y-3 p-5">
-        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-text-muted">
           <span>{project.sector?.name || "General"}</span>
           <span className={`rounded-full px-2 py-0.5 ${getStatusClasses(project.status)}`}>
             {project.status}
           </span>
         </div>
 
-        <h3 className="line-clamp-2 text-xl font-semibold text-slate-900 transition-colors group-hover:text-red-700">
+        <h3 className="line-clamp-2 text-xl font-semibold text-text-primary transition-colors group-hover:text-primary">
           {project.title}
         </h3>
 
-        <p className="line-clamp-2 text-sm text-slate-500">
+        <p className="line-clamp-2 text-sm text-text-muted">
           {cleanupHtml(project.description || "")}
         </p>
 
-        <hr className="border-slate-100" />
+        <hr className="border-border" />
 
-        <div className="grid grid-cols-2 gap-2 text-sm text-slate-500">
+        <div className="grid grid-cols-2 gap-2 text-sm text-text-muted">
           <p>
-            <span className="block text-xs font-bold uppercase text-slate-400">
+            <span className="block text-xs font-bold uppercase text-text-muted/70">
               Location
             </span>
             <span
-              className="block truncate font-medium text-slate-700"
+              className="block truncate font-medium text-text-primary"
               title={project.location}
             >
               {project.location}
@@ -53,10 +53,10 @@ export default function ProjectCard({ project, onSelect }) {
           </p>
 
           <p className="text-right">
-            <span className="block text-xs font-bold uppercase text-slate-400">
+            <span className="block text-xs font-bold uppercase text-text-muted/70">
               Timeline
             </span>
-            <span className="font-medium text-slate-700">
+            <span className="font-medium text-text-primary">
               {project.end_date ? formatProjectDate(project.end_date) : "Ongoing"}
             </span>
           </p>

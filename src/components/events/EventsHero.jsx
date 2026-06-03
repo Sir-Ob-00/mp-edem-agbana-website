@@ -1,7 +1,7 @@
 export default function EventsHero({ title, description, stats = [] }) {
   return (
-    <section className="rounded-3xl bg-slate-900 px-6 py-12 text-white shadow-xl sm:px-8">
-      <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-300">
+    <section className="rounded-3xl bg-dark px-6 py-12 text-white shadow-xl sm:px-8">
+      <p className="text-xs font-semibold uppercase tracking-[0.4em] text-accent">
         Events & Engagements
       </p>
       <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">

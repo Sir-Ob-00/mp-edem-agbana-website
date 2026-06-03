@@ -17,12 +17,12 @@ export function formatProjectDate(dateString) {
 export function getStatusClasses(status = "") {
   switch (status.toLowerCase()) {
     case "ongoing":
-      return "bg-emerald-100 text-emerald-700";
+      return "bg-successBg text-success";
     case "completed":
-      return "bg-blue-100 text-blue-700";
+      return "bg-primary/10 text-primary";
     case "planning":
-      return "bg-amber-100 text-amber-700";
+      return "bg-warningBg text-warning";
     default:
-      return "bg-slate-100 text-slate-700";
+      return "bg-background text-text-muted";
   }
 }

@@ -19,7 +19,7 @@ const cards = [
 
 function VisionMission() {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-background py-16">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-2">
         {cards.map((card, index) => (
           <motion.article
@@ -28,15 +28,15 @@ function VisionMission() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ delay: index * 0.15 }}
-            className="rounded-3xl bg-white p-8 shadow-lg"
+            className="rounded-3xl bg-surface p-8 shadow-lg"
           >
-            <div className="flex items-center gap-3 text-red-600">
+            <div className="flex items-center gap-3 text-primary">
               <i className={`${card.icon} text-3xl`}></i>
-              <h3 className="text-2xl font-semibold text-slate-900">
+              <h3 className="text-2xl font-semibold text-text-primary">
                 {card.title}
               </h3>
             </div>
-            <p className="mt-4 text-slate-600">{card.description}</p>
+            <p className="mt-4 text-text-secondary">{card.description}</p>
           </motion.article>
         ))}
       </div>

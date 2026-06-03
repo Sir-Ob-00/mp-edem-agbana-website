@@ -4,13 +4,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-slate-200 py-12">
+    <footer className="bg-dark text-white/75 py-12">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:grid-cols-2 lg:grid-cols-4">
         
         {/* Contact */}
         <div>
-          <h3 className="text-xl font-semibold">Our Contact</h3>
-          <div className="mt-4 space-y-2 text-sm text-slate-400">
+          <h3 className="text-xl font-semibold text-white">Our Contact</h3>
+          <div className="mt-4 space-y-2 text-sm text-white/75">
             <p>Sefwi Wiawso Municipal Assembly</p>
             <p>P.O Box 25</p>
             <p>Western North Region · Ghana</p>
@@ -25,8 +25,8 @@ export default function Footer() {
 
         {/* Working Hours */}
         <div>
-          <h3 className="text-xl font-semibold">Working Hours</h3>
-          <p className="mt-4 text-sm text-slate-400">
+          <h3 className="text-xl font-semibold text-white">Working Hours</h3>
+          <p className="mt-4 text-sm text-white/75">
             Monday - Friday
             <br />
             <span className="text-white">08:00 AM - 05:00 PM</span>
@@ -35,22 +35,22 @@ export default function Footer() {
 
         {/* Location */}
         <div>
-          <h3 className="text-xl font-semibold">Location</h3>
-          <p className="mt-4 text-sm text-slate-400">
+          <h3 className="text-xl font-semibold text-white">Location</h3>
+          <p className="mt-4 text-sm text-white/75">
             Sefwi Wiawso, Western North Region
           </p>
         </div>
 
         {/* Useful Links */}
         <div>
-          <h3 className="text-xl font-semibold">Useful Links</h3>
-          <ul className="mt-4 space-y-2 text-sm text-amber-300">
+          <h3 className="text-xl font-semibold text-white">Useful Links</h3>
+          <ul className="mt-4 space-y-2 text-sm text-accent">
             <li>
               <a
                 href="https://lgs.gov.gh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:text-white transition-colors"
               >
                 Local Government Service
               </a>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href="https://www.ghanadistricts.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:text-white transition-colors"
               >
                 Ghana Districts
               </a>
@@ -70,7 +70,7 @@ export default function Footer() {
                 href="https://www.ghana.gov.gh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:text-white transition-colors"
               >
                 Government Portal
               </a>
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://parliament.gh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:text-white transition-colors"
               >
                 Parliament of Ghana
               </a>
@@ -90,12 +90,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="mt-10 border-t border-white/10 pt-4 text-center text-xs text-slate-500">
+      <div className="mt-10 border-t border-white/10 pt-4 text-center text-xs text-white/50">
         <p>
           &copy; {currentYear} Office of the MP, Sefwi Wiawso Constituency —
           Hon. Kofi Benteh Afful. All rights reserved.
         </p>
-        <p className="mt-2 text-amber-300">
+        <p className="mt-2 text-accent">
           Designed by Nolex-Prime IT & Training Services
         </p>
       </div>

@@ -44,19 +44,19 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="rounded-3xl border border-white/70 bg-white/95 p-8 shadow-lg">
+    <div className="rounded-3xl border border-border bg-surface p-8 shadow-lg">
       <div className="space-y-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-text-muted">
           Send Us a Message
         </p>
-        <h2 className="text-2xl font-semibold text-slate-900">
+        <h2 className="text-2xl font-semibold text-text-primary">
           Fill out the form and we&apos;ll respond soon
         </h2>
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5">
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-text-primary">
             Full Name *
           </label>
           <input
@@ -65,13 +65,13 @@ export default function ContactForm() {
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Enter your full name"
-            className="w-full rounded-md border border-slate-200 px-3 py-2 outline-none focus:border-emerald-400"
+            className="w-full rounded-md border border-border px-3 py-2 text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-text-primary">
             Email Address *
           </label>
           <input
@@ -80,13 +80,13 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="name@example.com"
-            className="w-full rounded-md border border-slate-200 px-3 py-2 outline-none focus:border-emerald-400"
+            className="w-full rounded-md border border-border px-3 py-2 text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             required
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-text-primary">
             Phone Number
           </label>
           <input
@@ -95,12 +95,12 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             placeholder="(+233)"
-            className="w-full rounded-md border border-slate-200 px-3 py-2 outline-none focus:border-emerald-400"
+            className="w-full rounded-md border border-border px-3 py-2 text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-text-primary">
             Subject
           </label>
           <input
@@ -109,12 +109,12 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={handleChange}
             placeholder="Let us know how we can help"
-            className="w-full rounded-md border border-slate-200 px-3 py-2 outline-none focus:border-emerald-400"
+            className="w-full rounded-md border border-border px-3 py-2 text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700">
+          <label className="text-sm font-semibold text-text-primary">
             Message *
           </label>
           <textarea
@@ -123,14 +123,14 @@ export default function ContactForm() {
             onChange={handleChange}
             rows={5}
             placeholder="Share more context here..."
-            className="w-full rounded-md border border-slate-200 px-3 py-2 outline-none focus:border-emerald-400"
+            className="w-full rounded-md border border-border px-3 py-2 text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             required
           />
         </div>
 
         <Button
           type="submit"
-          className="w-full rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-white hover:bg-emerald-400"
+          className="w-full rounded-full"
         >
           Send Message
         </Button>

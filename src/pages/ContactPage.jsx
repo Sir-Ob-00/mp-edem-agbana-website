@@ -51,36 +51,36 @@ const socialLinks = [
 
 export default function ContactPage() {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-emerald-50 text-slate-900">
+    <div className="relative overflow-hidden bg-gradient-to-b from-surface via-background to-background text-text-primary">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-emerald-200/40 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-sky-200/30 blur-[160px]" />
+        <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-primarySoft/20 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-infoBg/30 blur-[160px]" />
       </div>
 
       <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="space-y-4 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-text-muted">
             Contact Us
           </p>
-          <h1 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl">
+          <h1 className="text-4xl font-bold leading-tight text-text-primary sm:text-5xl">
             We&apos;re here to listen to your concerns and suggestions
           </h1>
-          <p className="mx-auto max-w-2xl text-base text-slate-600">
+          <p className="mx-auto max-w-2xl text-base text-text-secondary">
             Reach out using any of the channels below or send us a quick
             message.
           </p>
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-8 rounded-3xl border border-white/70 bg-white/90 p-8 shadow-sm">
+          <div className="space-y-8 rounded-3xl border border-border bg-surface/90 p-8 shadow-sm">
             <div className="space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-text-muted">
                 Contact Information
               </p>
-              <h2 className="text-3xl font-semibold text-slate-900">
+              <h2 className="text-3xl font-semibold text-text-primary">
                 Reach out directly through these channels
               </h2>
-              <p className="text-base text-slate-600">
+              <p className="text-base text-text-secondary">
                 Our constituency team responds within one business day.
               </p>
             </div>
@@ -98,8 +98,8 @@ export default function ContactPage() {
 
             <div>
               <div className="mb-4 flex items-center gap-3">
-                <Share2 className="h-5 w-5 text-sky-500" />
-                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+                <Share2 className="h-5 w-5 text-info" />
+                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-text-muted">
                   Follow Us
                 </p>
               </div>
@@ -112,8 +112,8 @@ export default function ContactPage() {
 
             <div>
               <div className="mb-4 flex items-center gap-3">
-                <MessageCircle className="h-5 w-5 text-emerald-300" />
-                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-slate-500">
+                <MessageCircle className="h-5 w-5 text-primarySoft" />
+                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-text-muted">
                   Office Visit
                 </p>
               </div>

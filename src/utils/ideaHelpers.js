@@ -18,16 +18,16 @@ export function formatIdeaDate(dateString) {
 export function getStatusClasses(status) {
   switch (status) {
     case "implemented":
-      return "bg-green-500 text-white";
+      return "bg-success text-white";
     case "approved":
-      return "bg-blue-500 text-white";
+      return "bg-primary text-white";
     case "under_review":
-      return "bg-yellow-500 text-white";
+      return "bg-warning text-white";
     case "pending":
-      return "bg-slate-500 text-white";
+      return "bg-text-muted text-white";
     case "rejected":
       return "bg-red-500 text-white";
     default:
-      return "bg-gray-500 text-white";
+      return "bg-text-muted text-white";
   }
 }

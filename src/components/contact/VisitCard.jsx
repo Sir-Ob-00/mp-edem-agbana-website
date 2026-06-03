@@ -2,7 +2,7 @@ import Button from "../ui/button";
 
 export default function VisitCard() {
   return (
-    <div className="rounded-3xl border border-slate-900/10 bg-slate-900 p-8 text-white shadow-2xl">
+    <div className="rounded-3xl border border-dark/10 bg-dark p-8 text-white shadow-2xl">
       <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
         Find Us
       </p>

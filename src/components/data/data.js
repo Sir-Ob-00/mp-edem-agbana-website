@@ -183,20 +183,20 @@ export const getStatusColor = (status) => {
   }
 
   const colorMap = {
-    yellow: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    blue: "bg-blue-100 text-blue-800 border-blue-200",
-    green: "bg-green-700 text-green-100 border-green-200",
+    yellow: "bg-warningBg text-warning border-warningBg",
+    blue: "bg-infoBg text-info border-infoBg",
+    green: "bg-successBg text-success border-successBg",
     red: "bg-red-100 text-red-800 border-red-200",
-    orange: "bg-orange-100 text-orange-800 border-orange-200",
-    gray: "bg-gray-100 text-gray-800 border-gray-200",
-    purple: "bg-purple-100 text-purple-800 border-purple-200",
-    indigo: "bg-indigo-100 text-indigo-800 border-indigo-200",
-    cyan: "bg-cyan-700 text-cyan-100 border-cyan-200",
+    orange: "bg-warningBg text-warning border-warningBg",
+    gray: "bg-background text-text-muted border-border",
+    purple: "bg-primary/10 text-primary border-primary/20",
+    indigo: "bg-primary/10 text-primary border-primary/20",
+    cyan: "bg-primarySoft text-primary border-primarySoft",
   };
 
   return (
     colorMap[statusConfig.color] ||
-    "bg-gray-100 text-gray-800 border-gray-200"
+    "bg-background text-text-muted border-border"
   );
 };
 
@@ -210,14 +210,14 @@ export const getPriorityColor = (priority) => {
   }
 
   const colorMap = {
-    green: "bg-green-100 text-green-800",
-    yellow: "bg-yellow-100 text-yellow-800",
+    green: "bg-successBg text-success",
+    yellow: "bg-warningBg text-warning",
     red: "bg-red-100 text-red-800",
   };
 
   return (
     colorMap[priorityConfig.color] ||
-    "bg-gray-100 text-gray-800"
+    "bg-background text-text-muted"
   );
 };
 
