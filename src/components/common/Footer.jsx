@@ -11,14 +11,10 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white">Our Contact</h3>
           <div className="mt-4 space-y-2 text-sm text-white/75">
-            <p>Sefwi Wiawso Municipal Assembly</p>
-            <p>P.O Box 25</p>
-            <p>Western North Region · Ghana</p>
+            <p>VY-1226-2220 – Tadzewu</p>
+            <p>hello@edemagbana.com</p>
             <p>
-              Tel: <span className="text-white">(+233) 242 560 140</span>
-            </p>
-            <p>
-              Tel: <span className="text-white">054 853 1963</span>
+              Tel: <span className="text-white">+233 552 477 081</span>
             </p>
           </div>
         </div>
@@ -37,7 +33,9 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold text-white">Location</h3>
           <p className="mt-4 text-sm text-white/75">
-            Sefwi Wiawso, Western North Region
+            Ketu North Constituency
+            <br />
+            Volta Region, Ghana
           </p>
         </div>
 
@@ -92,8 +90,8 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="mt-10 border-t border-white/10 pt-4 text-center text-xs text-white/50">
         <p>
-          &copy; {currentYear} Office of the MP, Sefwi Wiawso Constituency —
-          Hon. Kofi Benteh Afful. All rights reserved.
+          &copy; {currentYear} Office of the MP, Ketu North Constituency —
+          Hon. Edem Agbana. All rights reserved.
         </p>
         <p className="mt-2 text-accent">
           Designed by Nolex-Prime IT & Training Services

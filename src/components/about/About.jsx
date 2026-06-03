@@ -1,406 +1,54 @@
-import { motion } from "framer-motion";
-import {
-  BadgeCheck,
-  BookOpen,
-  Briefcase,
-  Feather,
-  Mail,
-  MapPin,
-  Phone,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import AboutHero from "./AboutHero";
+import StatsRibbon from "./StatsRibbon";
+import BiographySection from "./BiographySection";
+import RolesSection from "./RolesSection";
+import CommitteesSection from "./CommitteesSection";
+import EducationSection from "./EducationSection";
+import AwardsSection from "./AwardsSection";
+import PhilosophySection from "./PhilosophySection";
 
-import { Badge } from "../ui/badge";
-
-const quickFacts = [
-  { label: "Hometown", value: "Sefwi Boako, Western North Region" },
-  { label: "Date of Birth", value: "February 24, 1980" },
-  { label: "Political Party", value: "National Democratic Congress (NDC)" },
-  { label: "Religion", value: "Christian" },
+const roles = [
+  { title: "Member of Parliament", org: "Ketu North Constituency" },
+  { title: "Member, Education Committee", org: "Parliament of Ghana" },
+  { title: "Member, Public Accounts Committee", org: "Parliament of Ghana" },
+  { title: "Board Member", org: "Electricity Company of Ghana (ECG)" },
+  { title: "Project Manager", org: "African Centre for Development Finance" },
+  { title: "Chief Corporate Affairs Officer", org: "Young Apostles FC" },
+  { title: "President", org: "Nukunu Sports Academy" },
 ];
 
-const educationHistory = [
-  {
-    institution: "Kwame Nkrumah University of Science and Technology",
-    qualification: "MPhil",
-    year: "2022",
-  },
-  {
-    institution: "KNUST",
-    qualification: "MBA",
-    year: "2008",
-  },
-  {
-    institution: "University of Cape Coast",
-    qualification: "BCom",
-    year: "2005",
-  },
-  {
-    institution: "Institute of Chartered Accountants, Ghana",
-    qualification: "Chartered Accountant",
-    year: "2007",
-  },
-  {
-    institution: "Chartered Institute of Taxation, Ghana",
-    qualification: "Chartered Tax Advisor",
-    year: "2012",
-  },
-  {
-    institution: "Securities & Exchange, Ghana",
-    qualification: "Investment Advisor’s Representative",
-    year: "2015",
-  },
+const education = [
+  { degree: "PhD Candidate", field: "Finance", institution: "University of Professional Studies, Accra" },
+  { degree: "Master of Arts", field: "Development Finance & Economic Policy Management", institution: "University of Ghana" },
+  { degree: "Master of Arts", field: "Peace, Security & Intelligence Management", institution: "University of Professional Studies, Accra" },
 ];
 
-const experiences = [
-  {
-    role: "Managing Partner",
-    organization: "Masaada Consultants",
-  },
-  {
-    role: "Director of Finance & Administration",
-    organization: "Global Investment Bankers Ltd.",
-  },
-  {
-    role: "Chief Financial Officer",
-    organization: "Beige Capital Savings & Loans",
-  },
-  {
-    role: "Facilitator/Lecturer",
-    organization: "Kwame Nkrumah University of Science & Technology",
-  },
+const awards = [
+  { title: "Most Influential Young Politician", org: "Spotlight Africa Awards", year: "2020" },
+  { title: "50 Most Influential Young Ghanaians", org: "—", year: "2018 & 2020" },
+  { title: "100 Most Influential Young African Leaders", org: "—", year: "2018" },
+  { title: "Coca-Cola Ghana 60 Young Achievers Award", org: "Coca-Cola Ghana", year: "2017" },
+  { title: "Best Student Leader in Africa", org: "All-Africa Students Union", year: "2014" },
 ];
 
-const committees = [
-  "Business Committee",
-  "Environment, Science & Technology Committee",
-  "Constitutional, Legal & Parliamentary Affairs Committee",
+const stats = [
+  { value: "10+", label: "Years of Leadership" },
+  { value: "3", label: "Master's Degrees" },
+  { value: "5+", label: "Awards & Recognitions" },
+  { value: "7+", label: "Leadership Roles" },
 ];
-
-const contactDetails = [
-  {
-    label: "Parliament House, Accra, Ghana",
-    icon: MapPin,
-  },
-  {
-    label: "info@parliament.gh",
-    icon: Mail,
-    href: "mailto:info@parliament.gh",
-  },
-  {
-    label: "+233 30 263 3030",
-    icon: Phone,
-    href: "tel:+233302633030",
-  },
-];
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8 },
-  },
-};
 
 export default function About() {
   return (
-    <main className="relative overflow-hidden bg-linear-to-b from-background via-surface to-background text-text-primary transition-colors duration-700">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-12 top-16 h-64 w-64 rounded-full bg-primarySoft/30 blur-[120px]" />
-        <div className="absolute -left-12 bottom-10 h-80 w-80 rounded-full bg-accent/20 blur-[140px]" />
-      </div>
-
-      <motion.section
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-        className="relative mx-auto max-w-6xl space-y-14 px-4 py-16 sm:px-6 lg:px-8"
-      >
-        {/* HERO */}
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
-          <div className="space-y-6 rounded-3xl border border-border bg-surface/85 p-10 shadow-lg backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <Badge className="bg-accent/20 text-accent">
-                Coat of Arms
-              </Badge>
-
-              <Badge variant="secondary">
-                National Democratic Congress (NDC)
-              </Badge>
-            </div>
-
-            <div>
-              <h1 className="text-4xl font-bold leading-tight sm:text-5xl">
-                Hon. Kofi Benteh Afful
-              </h1>
-
-              <p className="mt-3 text-lg text-text-secondary">
-                Member of Parliament, Sefwi Wiawso
-              </p>
-            </div>
-
-            <dl className="grid gap-6 sm:grid-cols-2">
-              {quickFacts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="space-y-1 border-b border-border pb-4 transition-colors duration-300 hover:border-text-muted"
-                >
-                  <dt className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-                    {fact.label}
-                  </dt>
-
-                  <dd className="text-base font-medium text-text-primary">
-                    {fact.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          {/* IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative overflow-hidden rounded-3xl border border-white/60 shadow-2xl"
-          >
-            <img
-              src="https://res.cloudinary.com/kwamegilbert/image/upload/v1774465088/DSC_4681.jpg_oigsp1.jpg"
-              alt="Hon. Kofi Benteh Afful"
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-        </div>
-
-        {/* BIOGRAPHY */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUp}
-          className="rounded-3xl border border-border bg-surface/90 px-10 py-12 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <Sparkles className="h-5 w-5 text-accent" />
-
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-text-muted">
-              Biography
-            </p>
-          </div>
-
-          <div className="mt-6 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-            <p className="max-w-3xl text-lg leading-relaxed text-text-secondary">
-              Hon. Kofi Benteh Afful was first elected as the Member of
-              Parliament for Sefwi Wiawso in the December 2024 elections,
-              taking office in January 2025. Before entering politics, he built
-              a distinguished career as a Chartered Accountant and Tax Advisor,
-              serving in leadership roles across consulting firms, financial
-              institutions, and academia. He is committed to sustainable
-              development, youth empowerment, and transparent governance within
-              his constituency.
-            </p>
-
-            <div className="space-y-4 rounded-2xl border border-border/80 bg-surface/70 p-6 transition-all duration-500 hover:border-primarySoft hover:shadow-lg">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
-                Current Priorities
-              </p>
-
-              <ul className="space-y-3 text-sm text-text-secondary">
-                <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-primary" />
-                  Accelerate youth employment pathways across the constituency.
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-info" />
-                  Expand transparent, digital-first public services.
-                </li>
-
-                <li className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-accent" />
-                  Protect natural resources through sustainable policy.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* EDUCATION + EXPERIENCE */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUp}
-          className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]"
-        >
-          {/* EDUCATION */}
-          <div className="rounded-3xl border border-border bg-surface/90 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-            <div className="flex items-center gap-3">
-              <BookOpen className="h-5 w-5 text-info" />
-
-              <h2 className="text-2xl font-semibold">
-                Education & Qualifications
-              </h2>
-            </div>
-
-            <div className="mt-6 divide-y divide-border text-sm text-text-secondary">
-              {educationHistory.map((item) => (
-                <div
-                  key={`${item.institution}-${item.year}`}
-                  className="grid gap-3 py-4 sm:grid-cols-[minmax(0,1.3fr)_minmax(0,0.8fr)_80px]"
-                >
-                  <p className="font-semibold text-text-primary">
-                    {item.institution}
-                  </p>
-
-                  <p>{item.qualification}</p>
-
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    {item.year}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* EXPERIENCE */}
-          <div className="rounded-3xl border border-border bg-surface/90 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-            <div className="flex items-center gap-3">
-              <Briefcase className="h-5 w-5 text-primary" />
-
-              <h2 className="text-2xl font-semibold">
-                Professional Experience
-              </h2>
-            </div>
-
-            <ol className="mt-6 space-y-6 border-l border-border pl-6">
-              {experiences.map((experience) => (
-                <li
-                  key={`${experience.role}-${experience.organization}`}
-                  className="relative pl-4 transition-transform duration-300 hover:translate-x-1"
-                >
-                  <span className="absolute -left-8.5 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-primary bg-surface" />
-
-                  <p className="text-base font-semibold text-text-primary">
-                    {experience.role}
-                  </p>
-
-                  <p className="text-sm text-text-secondary">
-                    {experience.organization}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </motion.section>
-
-        {/* COMMITTEES + CONTACT */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUp}
-          className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]"
-        >
-          {/* COMMITTEES */}
-          <div className="rounded-3xl border border-border bg-surface/90 p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
-            <div className="flex items-center gap-3">
-              <Users className="h-5 w-5 text-primarySoft" />
-
-              <h2 className="text-2xl font-semibold">
-                Parliamentary Committees
-              </h2>
-            </div>
-
-            <ul className="mt-6 space-y-3 text-sm text-text-primary">
-              {committees.map((committee) => (
-                <li
-                  key={committee}
-                  className="flex items-center gap-3 border-b border-border pb-3 transition-colors duration-300 hover:border-text-muted last:border-none"
-                >
-                  <span className="h-2 w-2 rounded-full bg-primarySoft" />
-
-                  <p className="font-semibold text-text-primary">
-                    {committee}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CONTACT */}
-          <div className="rounded-3xl border border-dark/10 bg-dark text-white transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(55,31,13,0.65)]">
-            <div className="space-y-6 p-8">
-              <div className="flex items-center gap-3">
-                <BadgeCheck className="h-5 w-5 text-accent" />
-
-                <h2 className="text-2xl font-semibold">
-                  Get in Touch
-                </h2>
-              </div>
-
-              <p className="text-base text-white/75">
-                Engage the parliamentary office for constituency matters,
-                policy briefs, or collaborative initiatives. We respond within
-                two business days.
-              </p>
-
-              <div className="space-y-4">
-                {contactDetails.map(({ label, icon: Icon, href }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="rounded-2xl bg-white/10 p-3">
-                      <Icon className="h-4 w-4" />
-                    </div>
-
-                    {href ? (
-                      <a
-                        href={href}
-                        className="text-sm font-medium text-white/90 transition-colors hover:text-accent"
-                      >
-                        {label}
-                      </a>
-                    ) : (
-                      <p className="text-sm font-medium text-white/90">
-                        {label}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* COMMITMENT */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="rounded-3xl border border-border bg-surface/85 px-10 py-12 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
-        >
-          <div className="flex flex-wrap items-center gap-3">
-            <Feather className="h-5 w-5 text-primary" />
-
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-text-muted">
-              Commitment
-            </p>
-          </div>
-
-          <p className="mt-4 text-lg text-text-secondary">
-            “We are building a development agenda that is people-centered,
-            fiscally responsible, and deeply rooted in the aspirations of the
-            Western North Region. Every initiative is designed to reduce
-            cognitive overload for citizens by making public services simpler,
-            clearer, and more accessible.”
-          </p>
-        </motion.section>
-      </motion.section>
+    <main className="relative overflow-hidden bg-background text-text-primary">
+      <AboutHero />
+      <StatsRibbon stats={stats} />
+      <BiographySection />
+      <RolesSection roles={roles} />
+      <CommitteesSection />
+      <EducationSection education={education} />
+      <AwardsSection awards={awards} />
+      <PhilosophySection />
     </main>
   );
 }

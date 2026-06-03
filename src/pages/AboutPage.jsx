@@ -5,10 +5,10 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Hon. Kofi Benteh Afful</title>
+        <title>About Hon. Edem Agbana</title>
         <meta
           name="description"
-          content="Biography, career, and parliamentary mandate of Hon. Kofi Benteh Afful, Member of Parliament for Sefwi Wiawso."
+          content="Eric Edem Agbana is the current Member of Parliamnet for Ketu North, in the Volta Region of Ghana."
         />
       </Helmet>
 

@@ -8,7 +8,7 @@ export default function VisitCard() {
       </p>
 
       <h3 className="mt-4 text-2xl font-semibold">
-        Visit our constituency office in Sefwi Wiawso
+        Visit our constituency office in Ketu North
       </h3>
 
       <p className="mt-3 text-sm text-white/80">
@@ -17,10 +17,10 @@ export default function VisitCard() {
       </p>
 
       <div className="mt-6 space-y-3 text-sm text-white/90">
-        <p>MP&apos;s Office, Sefwi Wiawso Municipal Assembly</p>
-        <p>P.O Box 25, Sefwi Wiawso</p>
-        <p>Western North Region, Ghana</p>
-        <p>Ghana Post GPS: WG-0002-7111</p>
+        <p>VY-1226-2220 – Tadzewu</p>
+        <p>hello@edemagbana.com</p>
+        <p>+233 552 477 081</p>
+        
       </div>
 
       <Button

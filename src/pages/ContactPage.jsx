@@ -2,7 +2,6 @@ import { Clock, MapPin, MessageCircle, Phone, Share2 } from "lucide-react";
 import ContactInfoCard from "../components/contact/ContactInfoCard";
 import ContactForm from "../components/contact/ContactForm";
 import SocialLinks from "../components/contact/SocialLinks";
-import VisitCard from "../components/contact/VisitCard";
 
 const contactHighlights = [
   {
@@ -117,7 +116,6 @@ export default function ContactPage() {
                   Office Visit
                 </p>
               </div>
-              <VisitCard />
             </div>
           </div>
         </div>
