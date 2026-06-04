@@ -33,7 +33,7 @@ export default function Navbar() {
           <img
             src={Logo}
             alt="Logo"
-            className="w-10 h-10 object-contain"
+            className="w-16 h-16 object-contain"
           />
 
           <div className="font-semibold text-sm sm:text-lg leading-tight">
