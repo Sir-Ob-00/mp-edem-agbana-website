@@ -28,7 +28,7 @@ function NewsletterForm() {
             <input
               id="newsletter-email"
               type="email"
-              placeholder="you@example.com"
+              placeholder=""
               className="w-full rounded-2xl border border-border px-4 py-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
             <button

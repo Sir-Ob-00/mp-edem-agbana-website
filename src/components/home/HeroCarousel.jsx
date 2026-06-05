@@ -98,9 +98,23 @@ function HeroCarousel() {
   return (
     <section className="relative bg-dark overflow-hidden -mt-16 lg:-mt-20" aria-label="Hero slideshow" aria-roledescription="carousel" role="region">
       <div className="flex flex-col md:flex-row min-h-[600px] lg:min-h-[700px]">
-        {/* LEFT PANEL — Content */}
-        <div className="relative w-full md:w-1/2 bg-gradient-to-br from-primary via-primaryLight to-primarySoft px-8 sm:px-12 lg:px-16 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 flex flex-col justify-center overflow-hidden">
-          <div className="relative z-10 max-w-xl">
+{/* LEFT PANEL — Content */}
+         <div className="relative w-full md:w-1/2 bg-gradient-to-br from-primary via-primaryLight to-primarySoft px-8 sm:px-12 lg:px-16 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-12 lg:pb-16 flex flex-col justify-center overflow-hidden">
+           {/* Decorative rings */}
+           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+             <svg className="absolute -top-20 -left-20 w-80 h-80 opacity-10" viewBox="0 0 200 200" fill="none">
+               <circle cx="100" cy="100" r="90" stroke="white" strokeWidth="2" />
+             </svg>
+             <svg className="absolute -bottom-40 -right-40 w-96 h-96 opacity-10" viewBox="0 0 200 200" fill="none">
+               <circle cx="100" cy="100" r="80" stroke="white" strokeWidth="1.5" />
+             </svg>
+             <svg className="absolute top-1/3 right-10 w-64 h-64 opacity-5" viewBox="0 0 200 200" fill="none">
+               <circle cx="100" cy="100" r="60" stroke="white" strokeWidth="1" />
+             </svg>
+             <div className="absolute top-20 right-32 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
+             <div className="absolute bottom-32 left-16 w-24 h-24 bg-accent/10 rounded-full blur-2xl" />
+           </div>
+           <div className="relative z-10 max-w-xl">
             <p className="text-sm uppercase tracking-[0.3em] text-white/70 font-medium">
               Guided Service · Community First
             </p>

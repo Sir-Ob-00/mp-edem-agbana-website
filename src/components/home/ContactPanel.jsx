@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { contactDetails } from "../data/data";
+import { Mail, Phone } from "lucide-react";
 
 function ContactPanel() {
   const [fields, setFields] = useState({ name: "", email: "", message: "" });
@@ -30,20 +31,23 @@ function ContactPanel() {
               constituency services. We respond within 24 hours on business
               days.
             </p>
-            <div className="mt-6 space-y-3 text-sm text-text-muted">
-              {contactDetails.address.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
-              <div>
-                {contactDetails.phone.map((phone) => (
-                  <p key={phone}>📱 {phone}</p>
-                ))}
+<div className="mt-6 space-y-3 text-sm text-text-muted">
+              <div className="flex items-start">
+                <Mail className="inline-block mr-2 mt-1" />
+                <div>
+                  {contactDetails.address.map((line, i) => (
+                    <p key={i} className="leading-tight">{i > 0 && <br />}{line}</p>
+                  ))}
+                </div>
               </div>
-              {/* <div>
-                {contactDetails.email.map((email) => (
-                  <p key={email}>✉️ {email}</p>
-                ))}
-              </div> */}
+              <div className="flex items-start">
+                <Phone className="inline-block mr-2 mt-1" />
+                <div>
+                  {contactDetails.phone.map((p, i) => (
+                    <p key={i} className="leading-tight">{i > 0 && <br />}{p}</p>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -75,7 +79,7 @@ function ContactPanel() {
               <input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder=""
                 value={fields.email}
                 onChange={handleChange}
                 className="mt-2 w-full rounded-2xl border border-border px-4 py-3 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
